@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="getObj($event)" data-id="1638" data-course="vue">获取时间对象</button>
+			{{id}}----{{course}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				
+			},
+			methods:{
+				getObj:function(event){
+					console.log(event);
+					this.id=event.srcElement.dataset.id;
+					this.course=event.srcElement.dataset.course;
+				}
+			}
+		})
+	</script>
+</html>

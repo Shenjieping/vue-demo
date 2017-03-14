@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			num={{num}}
+			<br />
+			
+			num={{newNum}}
+			<br />
+			<br />
+			
+			msg={{msg}}
+			<br />
+			msg={{reverseMeg}}
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				num:2000,
+				msg:"abcd字符串反转"
+			},
+			computed:{//计算属性,newNum和reverseMeg都可以看做是有个属性，可以在页面中直接使用，不是一个方法
+				newNum:function(){
+					return this.num+1000
+				},
+				reverseMeg:function(){
+					return this.msg.split("").reverse().join("")
+				}
+			}
+		})
+	</script>
+</html>

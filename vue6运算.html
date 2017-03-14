@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{num}}
+			<br />
+			<br />
+			{{num+1000}}
+			<!--支持数学运算-->
+			<br />
+			<br />
+			{{msg.split("").reverse().join("")}}
+			<!--实现字符串反转-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				num:2000,
+				msg:"abcd字符串反转"
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.box{
+				height:100px;
+				width:100px;
+				background:#f66;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button v-on:click="getName()">点击事件</button>
+			<button @click="getName()">点击事件</button>
+			<br /><br />
+			<!--v-on:click="getName()"和v-on:click="getName"都可以，如果要传参数就必须要加()-->
+			<!--第二种是简写-->
+			<!--可以绑定任何js事件类型-->
+			<input type="text" name="" id="" value="" v-on:change="getData()" />
+			<div class="box" v-on:mouseover="mouse()"></div>
+			<br /><br />
+			<input type="text" name="" id="" value="" v-model = "test" />{{test}}
+			<!--双向数据绑定，和angular一样-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				name:"1638html",
+				test:"测试"//初始化
+			},
+			methods:{//所有定义的一个方法
+				//vue中可以直接通过this访问data中的数据
+				//点击事件可以通过v-on:click="getName()"来调用
+				//简写形式：@click="getName()"
+				//可以绑定任何类型的数据
+				getName:function(){
+					alert(this.name);
+				},
+				getData:function(){
+					alert(1)
+				},
+				mouse:function(){
+					console.log("aaaa")
+					console.log(this)//this指向Vue实例
+				}
+			}
+		})
+	</script>
+</html>

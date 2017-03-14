@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="msg" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*
+		 * 事件监听有两种写法
+		 * 一、
+		 * 
+		 */
+		var app = new Vue({
+			el:"#app",
+			data:{
+				msg:"监听"
+			},
+			compute:{
+				
+			},
+			method:{
+				
+			}
+		})
+		app.$watch("msg",function(newVal,oldVal){
+			console.log(newVal+"--------"+oldVal)
+		})
+	</script>
+</html>

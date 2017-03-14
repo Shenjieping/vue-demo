@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>计算属性</p>
+			message={{reverseMsg}}<br/>
+			message={{reverseMsg}}<br/>
+			message={{reverseMsg}}<br/>
+			<p>计算方法</p>
+			message={{reverseData()}}<br/>
+			message={{reverseData()}}<br/>
+			message={{reverseData()}}<br/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message:"字符串反转，计算和方法对比"
+				
+			},
+			computed:{
+				reverseMsg:function(){
+					console.log("计算")//效率更高，只需要调用一次就可以执行三次
+					return this.message.split("").reverse().join("");
+				}
+			},
+			methods:{
+				reverseData:function(){
+					console.log("方法")//效率更低，执行三次就要调用三次
+					return this.message.split("").reverse().join("");
+				}
+			}
+		})
+	</script>
+</html>

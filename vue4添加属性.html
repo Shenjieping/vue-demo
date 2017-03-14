@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<div v-text="msg"></div>
+			<div v-html="msg"></div>
+			<!--v-text不解析html标签，相当于innerText,v-html解析html标签,相当于innerHTML -->
+			<div v-bind:id="myId">添加属性</div>
+			<!--通过v-bind想元素添加属性及属性值-->
+			<div v-bind:test="myTest">添加自定义属性</div>
+			<div :test="myTest">添加自定义属性</div>
+			<!--上面是两种写法，都可以实现-->
+			<!--也可以添加自定义属性-->
+			<input type="text" name="" id="" value="" v-model="myTest" />
+			<!--通过双向数据绑定修改属性-->
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				msg:"<h2>测试</h2>",
+				myId:"myApp",//添加属性值为myApp,和Angular中的ng-src类似
+				myTest:"这是自定义属性"
+			}
+		})
+	</script>
+</html>

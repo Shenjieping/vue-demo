@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{name}}<br />
+			<ul>
+				<li v-for="item in list">{{item}}</li>
+			</ul>
+			<br />
+			<ul>
+				<li v-for="item in userList">{{item.name}}---{{item.info}}</li>
+			</ul>
+			<br />
+			<ul>
+				<li v-for="car in care">
+					{{car.brand}}
+					<ul>
+						<li v-for="item in car.kind">
+							{{item.name}}----{{item.title}}
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			//写一写选项,DOM 节点的绑定，初始数据，定义方法，计算的属性，监听数据
+			el:"#app",//相当于Angular的入口，可以是class，但是class不是唯一的，最好还是写id
+			data:{
+				name:"Vue js",
+				list:[1,2,3,4,5,6,7],//循环遍历使用v-for，在Angular中使用ng-repeat
+				userList:[{
+					name:"王希桐",
+					info:"这不是一个人"
+				},{
+					name:"tongtong ",
+					info:"这一个人"
+				},{
+					name:"平平",
+					info:"这是一个人"
+				}],
+				care : [{
+					brand:"宝马",
+					kind:[{
+						name:"宝马x5",
+						title:"x系列"
+					},{
+						name:"宝马x5",
+						title:"x系列"
+					}]
+				},{
+					brand:"奥迪",
+					kind:[{
+						name:"奥迪Q5",
+						title:"Q系列"
+					},{
+						name:"奥迪Q5",
+						title:"Q系列"
+					}]
+				}]
+			}
+		})
+	</script>
+</html>

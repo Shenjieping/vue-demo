@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css"/>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#app{
+				width:1000px;
+				min-height: 500px;
+				margin:20px auto;
+				border:1px solid #ccc
+			}
+			table{
+				margin-top:30px;
+			}
+			td{
+				text-align: center;
+			}
+			p{
+				line-height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="form-inline">
+				<input type="text" name="" id="" value="" class="form-control" placeholder="请输入信息" v-model="info" />
+				<input type="button" name="" id="" value="添加" @click="addData" class="btn btn-green" />
+				<p>共有<span class="text-danger">{{len}}</span>条记录</p>
+			</div>
+			<table class="table table-bordered table-hover">
+				<tr class="active">
+					<td>添加的类容</td>
+					<td>操作</td>
+				</tr>
+				<tr v-for="(item,index) in list">
+					<td>{{item}}</td>
+					<td><button class="btn btn-danger" @click="deleteData(index)">删除</button></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				info:"",//初始值
+				list:[],//添加值的列表
+				len:0//计算长度
+			},
+			methods:{
+				addData:function(){
+					this.list.push(this.info)
+					this.len++
+				},
+				deleteData:function(index){
+					console.log(index);
+					this.list.splice(index,1);
+					this.len--
+				}
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="dist/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="serchText" />
+			<ul>
+				<li v-for="item in searchList">{{item}}</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				serchText:"",
+				list:["apple","origin","pear","banana","watermalon"]
+			},
+			computed:{
+				searchList:function(){
+					//遍历数组list中的每一个数据--val，查看输入的数据this.serchText,
+					//使用indexOf，如果包含，则结果不为-1，如果等于-1，则不存在
+					var arr=[];
+					var that=this;
+					this.list.forEach(function(val){//val是list里面的每个元素，forEach循环每个元素
+						if(val.indexOf(that.serchText) != -1){
+							arr.push(val);
+						}
+					})
+					return arr;
+				}
+			}
+		})
+	</script>
+</html>
